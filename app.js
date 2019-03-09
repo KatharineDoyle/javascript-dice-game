@@ -13,36 +13,64 @@ GAME RULES:
 // var score2 = 0;
 //only want an array:
 
-var scores, roundScore, activePlayer, dice; // declaring the variables.
+var scores, roundScore, activePlayer; // declaring the variables.
 
 scores = [0, 0];
 roundScore = 0;
-activePlayer = 1;
+activePlayer = 0;
 
 // create the dice
-dice = Math.floor(Math.random() * 6) + 1; // number between 1 and 5
+// dice = Math.floor(Math.random() * 6) + 1; // number between 1 and 5
 
 // random number Generator
 
 // Math.random() * 6
 // BUT we dnt want a decimal. so we use Math.floor
 
-// document.querySelector("#current-" + activePlayer).textContent = dice; // activePlayer will be either 0 or 1
+//= dice; // activePlayer will be either 0 or 1
 // Element.textContent can only set plain text HTML. If we want HTML in selected element, we need innerHTML.
 
-document.querySelector("#current-" + activePlayer).innerHTML = '<em>' + dice + "</em>" // italicising test. // now write HTML in string form.
-var x = document.querySelector("#score-0").textContent;
-console.log(x);
+// document.querySelector("#current-" + activePlayer).innerHTML = '<em>' + dice + "</em>" // italicising test. // now write HTML in string form.
+// var x = document.querySelector("#score-0").textContent;
+// console.log(x);
 
 // hide dice at beginning, change display property value.
 document.querySelector('.dice').style.display = 'none';
 
+document.getElementById("score-0").textContent = "0";
+document.getElementById("score-1").textContent = "0";
+document.getElementById("current-0").textContent = "0";
+document.getElementById("current-1").textContent = "0";
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
   //1. random number
-  dice = Math.floor(Math.random() * 6) +1;
+
+  var dice = Math.floor(Math.random() * 6) +1;
+
   //2. display the result
+  var diceDOM = document.querySelector(".dice");
+  diceDOM.style.display = "block";
+  diceDOM.src = "dice-" + dice + ".png";
+
   // 3. update the round score IF the rolled number was NOT a 1.
+  if (dice !== 1) {
+    // add score
+    roundScore += dice;
+    document.querySelector("#current-" + activePlayer).textContent = roundScore;
+  } else {
+    //Next player - activePlayer changes from 0 to 1.
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    roundScore = 0;
+
+    document.getElementById("current-0").textContent = 0;
+    document.getElementById("current-0").textContent = 0;
+
+    document.querySelector('.player-0-panel').classList.remove('.active');
+    document.querySelector('.player-0-panel').classList.add('.active');
+
+  }
+
+
 }); // btn is 'callback function' ie. eventlistener calls it for us.
 
 
