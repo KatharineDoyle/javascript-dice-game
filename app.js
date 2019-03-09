@@ -65,8 +65,15 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     document.getElementById("current-0").textContent = 0;
     document.getElementById("current-0").textContent = 0;
 
-    document.querySelector('.player-0-panel').classList.remove('.active');
-    document.querySelector('.player-0-panel').classList.add('.active');
+    // visibly see which player is active.
+    // document.querySelector('.player-0-panel').classList.remove('active');
+    // document.querySelector('.player-1-panel').classList.add('active');
+
+    // toggle - add the class if its there, if not then remove.
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+
+    document.querySelector('.dice').style.display = 'none';
 
   }
 
