@@ -36,3 +36,17 @@ console.log(x);
 
 // hide dice at beginning, change display property value.
 document.querySelector('.dice').style.display = 'none';
+
+
+document.querySelector('.btn-roll').addEventListener('click', function() {
+  //1. random number
+  dice = Math.floor(Math.random() * 6) +1;
+  //2. display the result
+  // 3. update the round score IF the rolled number was NOT a 1.
+}); // btn is 'callback function' ie. eventlistener calls it for us.
+
+
+
+
+
+
