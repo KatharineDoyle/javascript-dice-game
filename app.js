@@ -59,11 +59,28 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     document.querySelector("#current-" + activePlayer).textContent = roundScore;
   } else {
     //Next player - activePlayer changes from 0 to 1.
+    nextPlayer();
+
+  }
+
+}); // btn is 'callback function' ie. eventlistener calls it for us.
+
+document.querySelector(".btn-hold").addEventListener('click', function() {
+  // add current score to global score.
+  scores[activePlayer] += roundScore;
+  // scores[activePlayer] = scores[activePlayer] + roundScore;
+
+  document.querySelector('#score-' + activePlayer).textContent + scores[activePlayer];
+  nextPlayer();
+});
+
+function nextPlayer() {
+   //Next player - activePlayer changes from 0 to 1.
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
     roundScore = 0;
 
     document.getElementById("current-0").textContent = 0;
-    document.getElementById("current-0").textContent = 0;
+    document.getElementById("current-1").textContent = 0;
 
     // visibly see which player is active.
     // document.querySelector('.player-0-panel').classList.remove('active');
@@ -76,22 +93,6 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     document.querySelector('.dice').style.display = 'none';
 
   }
-
-
-}); // btn is 'callback function' ie. eventlistener calls it for us.
-
-document.querySelector("#btn-hold").addEventListener('click', function() {
-  // add current score to global score.
-  scores[activePlayer] += roundScore;
-  // scores[activePlayer] = scores[activePlayer] + roundScore;
-
-  document.querySelector('#score-' + activePlayer).textContent + scores[activePlayer];
-
-
-  // update the ui.
-  // check if player won the game.
-});
-
 
 
 
