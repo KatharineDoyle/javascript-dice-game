@@ -80,7 +80,17 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
 }); // btn is 'callback function' ie. eventlistener calls it for us.
 
+document.querySelector("#btn-hold").addEventListener('click', function() {
+  // add current score to global score.
+  scores[activePlayer] += roundScore;
+  // scores[activePlayer] = scores[activePlayer] + roundScore;
 
+  document.querySelector('#score-' + activePlayer).textContent + scores[activePlayer];
+
+
+  // update the ui.
+  // check if player won the game.
+});
 
 
 
