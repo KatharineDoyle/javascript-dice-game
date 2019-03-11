@@ -70,7 +70,7 @@ document.querySelector(".btn-hold").addEventListener('click', function() {
   scores[activePlayer] += roundScore;
   // scores[activePlayer] = scores[activePlayer] + roundScore;
 
-  document.querySelector('#score-' + activePlayer).textContent + scores[activePlayer];
+  document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
   nextPlayer();
 });
 
